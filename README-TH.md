@@ -1,115 +1,103 @@
 # AVSF-B-NTP
 
-นี่คือชุดไฟล์ AVSF แบบเต็มที่รวบรวมรายงาน ฟีเจอร์ การปรับปรุงระบบ และประวัติแพตช์จากช่วงเริ่มต้นจนรุ่นล่าสุด เพื่อให้สามารถอัปโหลดสู่ GitHub และจัดเก็บเป็นแหล่งอ้างอิงเดียวได้
+ซอร์ส AVSF ฉบับเต็มสำหรับ **เปิดเว็บไซต์ใหม่ด้วยฐานข้อมูลว่าง** ไฟล์นี้รวมคู่มือติดตั้ง ภาพรวมฟังก์ชัน ประวัติรุ่น และผลตรวจสอบไว้เป็นเอกสารหลักภาษาไทย โดยไม่มี log การทำงานของเอเจนต์ ข้อมูลตั้งค่าเว็บจริง ฐานข้อมูลผู้ใช้ หรือไฟล์อัปโหลดเดิม
 
-## ภาพรวมโครงการ
+## ข้อมูลรุ่น
 
-- ชื่อโปรดักต์: AVSF
-- เจ้าของ/ผู้สร้าง: B-NTP
-- เวอร์ชัน: 3.2.4 พร้อม refinements ล่าสุดถึง 3.2.8
-- ประเภทแพกเกจ: Full source + update bundle + release documentation
-- ใช้สำหรับ: ติดตั้งบนเว็บไซต์ AVSF ที่มีอยู่ หรือใช้เป็นสืบค้นและอ้างอิงของระบบแบบเต็ม
+- ผลิตภัณฑ์: AVSF
+- ผู้เผยแพร่: B-NTP
+- เวอร์ชันแอป: 3.2.8
+- แพ็กเกจ: ซอร์สเต็ม พร้อมระบบตั้งค่าฐานข้อมูลและสร้าง Owner ครั้งแรก
+- การติดตั้งใหม่จะเริ่มด้วยฐานข้อมูลใหม่ ไม่มีโพสต์ บัญชีผู้ใช้ หรือรูปภาพเดิม
 
-## ส่วนประกอบระบบที่รวมอยู่
+## วิธีติดตั้งเว็บไซต์ใหม่
 
-- `avsf-core/` — ระบบหลัก ความปลอดภัย การสำรองข้อมูล การแปลภาษา การนำเข้า และการจัดการอัปเดต
-- `avsf-frontend/` — เทมเพลตหน้าเว็บ การแสดงโพสต์ การจัดกลุ่มแท็ก/หมวดหมู่ และ UI ที่ตอบสนอง
-- `avsf-admin/` — เมนูจัดการหลังบ้านและโมดูลการดูแลระบบ
-- `avsf-installer/` — เครื่องมือติดตั้งและการสร้าง Schema ฐานข้อมูล
-- `avsf-storage/` — โฟลเดอร์เก็บไฟล์อัปโหลดและการตั้งค่าความปลอดภัย
-- ไฟล์ PHP หลัก — หน้าเว็บ ระบบสมัคร เข้าสู่ระบบ หน้าโพสต์ RSS Sitemap Robots และฟังก์ชันสำคัญอื่น ๆ
-- `config.php` และ `config.local.example.php` — การตั้งค่าเบื้องต้นของเว็บไซต์
+1. สร้างฐานข้อมูล MySQL ว่างและผู้ใช้ฐานข้อมูลเฉพาะสำหรับเว็บไซต์นี้จากแผงควบคุม Hosting ห้ามใช้ฐานข้อมูล production เดิม
+2. เปิด HTTPS และ Apache `mod_rewrite`; ใช้ PHP ที่เปิด `mysqli` และเปิด `zip` สำหรับระบบจัดการไฟล์สำรอง/ZIP
+3. อัปโหลดเนื้อหา source ลงใน Document Root โดยตรง ให้ `index.php`, `config.php` และ `.htaccess` อยู่ที่รากเว็บไซต์ อย่าอัปโหลดโฟลเดอร์ `.git` และอย่าให้มีโฟลเดอร์ครอบซ้ำอีกชั้น
+4. ตั้งสิทธิ์ให้ PHP เขียนโฟลเดอร์ที่จำเป็นภายใน `avsf-storage/` ด้วยสิทธิ์ต่ำที่สุดที่ Hosting รองรับ ห้ามตั้งเป็น `777`
+5. ในเบราว์เซอร์ session เดียวกัน เปิด `https://โดเมนของคุณ/db-setup.php` แล้วกรอกข้อมูลเชื่อมต่อฐานข้อมูล ระบบจะทดสอบการเชื่อมต่อและสร้าง `config.local.php` ซึ่งเป็นไฟล์ลับ
+6. ทำต่อในเบราว์เซอร์เดิมที่ `https://โดเมนของคุณ/setup.php` เพื่อสร้างบัญชี Owner คนแรก เก็บรหัสผ่านที่ระบบสุ่มไว้ในที่ปลอดภัย และตั้งค่า 2FA เมื่อเข้าสู่ระบบครั้งแรก
+7. เข้าหลังบ้านที่ `/admin-login/` ตั้งชื่อเว็บไซต์ URL หลัก ภาษา อีเมลและบริการภายนอก SEO และ permalink
+8. ทดสอบหน้าแรก หน้าโพสต์ ค้นหา taxonomy หลังบ้าน การอัปโหลด Sitemap, Robots, นำเข้า/ส่งออก และสำรอง/กู้คืน ก่อนเปิดใช้งานจริง
 
-## จุดเด่นของระบบที่ผนวกอยู่
+ตัวติดตั้งจะสร้างเว็บไซต์ว่าง ไม่ได้นำโพสต์ บัญชีผู้ใช้ การตั้งค่า ฐานข้อมูล หรือรูปภาพจากเว็บไซต์อื่นเข้ามา
 
-- การทำงานแบบ responsive สำหรับ taxonomy และหน้า content
-- การจัดการ SEO และ metadata ตามชนิดของเนื้อหา
-- ปุ่มและแผงควบคุมแบบ admin dock ที่มีการตรวจสิทธิ์
-- การจัดการ URL inventory และความเรียบร้อยของหน้าเว็บ
-- หน้า category / studio / actor / tag / card ที่มีการออกแบบหลากหลายและสวยงาม
-- การรองรับหลายภาษาและการแปลภาษา (i18n)
-- การจัดการไฟล์อัปโหลดและการป้องกันการเรียกไฟล์สคริปต์โดยตรง
-- โมดูลสำรองข้อมูล ความปลอดภัย และการนำเข้าข้อมูล
+## นำไปใช้กับเว็บไซต์ AVSF เดิม
 
-## ประวัติรุ่นและแพตช์ที่บรรจุ
+ซอร์สนี้ใช้เป็น overlay update ได้ แต่ให้ใช้ขั้นตอนอัปเดตแยกต่างหาก:
 
-มีไฟล์บันทึกการเปลี่ยนแปลงและ patch หลายฉบับ รวมถึง:
+1. สำรองไฟล์และฐานข้อมูลเว็บไซต์เดิมให้ครบ และทดลองบน staging ก่อน
+2. อัปโหลดเนื้อหา source ลง Document Root เดิม โดยเขียนทับเฉพาะไฟล์แอปที่ชื่อซ้ำ
+3. เก็บ `config.local.php`, ฐานข้อมูล, ไฟล์ใน `avsf-storage/uploads/` และ backup ส่วนตัวไว้ ห้ามรันตัวติดตั้งใหม่หรือ import schema เปล่าทับฐานข้อมูลเดิม
+4. ล้างแคช AVSF และแคช Hosting/CDN ตามที่ใช้ แล้วตรวจสอบหน้าเว็บและหลังบ้าน
 
-- `CHANGELOG-V3-TH.md`
-- `CHANGELOG-V3.1-TH.md`
-- `CHANGELOG-V3.1.2-TH.md`
-- `CHANGELOG-V3.2.0-TH.md`
-- `CHANGELOG-V3.2.1-TH.md`
-- `CHANGELOG-V3.2.2-TH.md`
-- `CHANGELOG-V3.2.3-TH.md`
-- `CHANGELOG-V3.2.4-TH.md`
-- `CHANGELOG-COMPACT-UNIFORM-CARD-PANELS-TH.md`
-- `CHANGELOG-COVER-CATEGORY-RESTORE-TH.md`
-- `CHANGELOG-CYBER-NEON-TAXONOMY-TH.md`
-- `CHANGELOG-DETAIL-INFO-ICONS-COMPACT-ROWS-TH.md`
-- `CHANGELOG-GALLERY-HOVER-TAP-PREVIEW-TH.md`
-- `CHANGELOG-INSTANT-TOUCH-SELECTION-TH.md`
-- `CHANGELOG-MEDIA-FALLBACK-TH.md`
-- `CHANGELOG-NO-COVER-ART-ZOOM-TH.md`
-- `CHANGELOG-ORIENTATION-AWARE-POSTER-AND-COMPACT-DETAIL-TH.md`
-- `CHANGELOG-ORIGINAL-CARD-SIZE-POSTER-REFINE-TH.md`
-- `CHANGELOG-PORTRAIT-FILL-LONGPRESS-TH.md`
-- `CHANGELOG-POST-FALLBACK-CATEGORY-ART-TH.md`
-- `CHANGELOG-POSTER-NATURAL-FIT-BORDERLESS-TH.md`
-- `CHANGELOG-RECOMMENDED-NO-COVER-TH.md`
-- `CHANGELOG-REFERENCE-ARTWORK-TH.md`
-- `CHANGELOG-RESPONSIVE-ALL-DEVICES-TH.md`
-- `CHANGELOG-RESPONSIVE-ART-NATURAL-COVERS-TH.md`
-- `CHANGELOG-RESPONSIVE-DETAIL-ROW-SPACING-TH.md`
-- `CHANGELOG-SELECTION-OUTLINE-INSTANT-PREVIEW-TH.md`
-- `CHANGELOG-STANDARD-UNIFORM-POST-CARDS-TH.md`
-- `CHANGELOG-UNIFORM-COVER-FRAMES-TH.md`
+## ส่วนประกอบที่รวมอยู่
 
-## รายงานตรวจสอบและประเมินผล
+- `avsf-core/` — bootstrap, เครื่องมือฐานข้อมูล, สิทธิ์ผู้ใช้, 2FA, ความปลอดภัย, cache, backup, import, i18n, analytics และระบบ deploy update
+- `avsf-frontend/` และ `avsf-frontend.css` — routes, templates, หน้า taxonomy, การ์ดโพสต์ แกลเลอรี ตัวเล่นวิดีโอ และ controller สำหรับ SEO/feed
+- `avsf-admin/` — Dashboard/Site Center, จัดการผู้ใช้, Security, SEO, redirect, File Manager, import/export, cache, backup และ error log
+- `avsf-installer/` — ตั้งค่าฐานข้อมูลและ Owner ครั้งแรก ย้าย storage เชื่อมต่อเซิร์ฟเวอร์ สร้าง schema และรองรับ clean package
+- `avsf-storage/` — พื้นที่ uploads และ runtime storage ที่มีการป้องกัน ไม่มีไฟล์ผู้ใช้ backup log หรือฐานข้อมูลจริงรวมอยู่
+- ไฟล์ราก `index.php`, endpoint shims, `.htaccess`, `config.php` และ `config.local.example.php`
 
-มีเอกสารรายงานการวิเคราะห์และทดสอบหลายฉบับ เช่น:
+## ภาพรวมฟังก์ชัน
 
-- `AUDIT-REPORT-TH.md`
-- `shard-A-report.md`
-- `shard-B-report.md`
-- `shard-C-report.md`
-- `shard-D-report.md`
-- `shard-E-i18n-report.md`
-- `README-TEST-PRIVATE-TH.md`
-- `README-FULL-SOURCE-TH.md`
-- `README-UPLOAD-FIX-TH.md`
-- `README-UPLOAD-HTACCESS-HOTFIX-TH.md`
-- `CLEAN-SITE-FEATURE-TH.md`
-- `I18N-CONVERSION-SPEC.md`
-- `DEVELOPER.md`
-- `LIGHT-DARK-THEME-FIX-TH.txt`
+### หน้าเว็บไซต์
 
-## ใบสัญญาและ metadata
+- หน้าแรก ค้นหา archive หมวดหมู่ ค่าย นักแสดง แท็ก หน้าเนื้อหา และหน้าโพสต์เดี่ยว รองรับหน้าจอหลายขนาด
+- แกลเลอรี โพสต์แนะนำ/เกี่ยวข้อง ตัวเล่นวิดีโอ ความคิดเห็น และ metadata
+- ปรับขนาดปกและโปสเตอร์ตามสัดส่วนภาพ มีภาพสำรองเมื่อไม่มีปก และ preview แกลเลอรีสำหรับจอสัมผัส
+- RSS, Robots, XML Sitemap และ Sitemap index
+- โครงสร้างแปลไทย/อังกฤษ ตัวเลือกภาษา ข้อความหน้าเว็บ และชุดคำแปล
 
-- `AVSF-METADATA.json`
-- `AVSF-FULL-TEST-PRIVATE-MANIFEST.json`
-- `AVSF-V3.2.1-UPDATE-MANIFEST.json`
-- `AVSF-V3.2.4-FULL-SOURCE-MANIFEST.json`
-- `UPDATE-MANIFEST.json`
-- `PATCH-MANIFEST.json`
-- `SHA256SUMS`
+### ระบบหลังบ้าน
 
-## วิธีติดตั้งและอัปโหลด
+- Dashboard, Site Center และปุ่มทางลัดที่ตรวจสอบสิทธิ์ก่อนแสดง/ทำงาน
+- จัดการผู้ใช้/บทบาท ความปลอดภัยในการเข้าสู่ระบบ และ 2FA แบบ TOTP
+- SEO template, การตั้งค่า index, Sitemap, URL inventory, redirects และ error log
+- File Manager พร้อมค้นหา แก้ไข อัปโหลด ดาวน์โหลด และจัดการไฟล์
+- Import/export, backup/restore, cache, สแกนความปลอดภัย และตรวจสุขภาพเว็บไซต์
+- ธีมและเครื่องมือหลังบ้านที่ตอบสนองต่อหน้าจอหลายขนาด รูปแบบ rank ไม่ได้เพิ่มสิทธิ์จริง
 
-1. สำรองเว็บไซต์และฐานข้อมูลที่ใช้อยู่ก่อน
-2. ทดสอบบน staging site ก่อนใช้งานจริง
-3. อัปโหลดไฟล์ทั้งหมดลงในโฟลเดอร์ Document Root ของ AVSF และเขียนทับไฟล์ที่ตรงกันแทน
-4. เก็บ `config.local.php`, ฐานข้อมูลเดิม และไฟล์อัปโหลดที่อยู่ใน `avsf-storage/uploads/` ไว้
-5. ล้างแคชของ AVSF และแคชจากฮอสติ้ง/CDN หลังติดตั้ง
-6. ตรวจสอบหน้าเว็บส่วนหน้าแรก หน้าโพสต์ หน้าแอดมิน การอัปโหลด Sitemap และ SEO
+### ความปลอดภัยและข้อมูล
 
-## ข้อควรระวัง
+- ระบบติดตั้งครั้งแรกเขียนข้อมูลฐานข้อมูลลง `config.local.php` ซึ่งต้องเก็บเป็นความลับ
+- กฎ Apache ป้องกันไฟล์ config, โฟลเดอร์ภายใน, runtime storage และไฟล์สคริปต์ใน uploads
+- ติดตั้งใหม่ใช้ฐานข้อมูลว่าง ไม่มีบัญชีผู้ใช้ สิทธิ์ โพสต์ การตั้งค่า และสื่อจากเว็บไซต์เดิม
 
-- เป็นแพตช์ overlay ไม่ใช่การติดตั้ง fresh site
-- ไม่รวม credentials จริงหรือข้อมูลผู้ใช้งานจริง
-- ไม่ควรลบโฟลเดอร์ uploads หรือ config เดิมโดยไม่ได้วางแผนอย่างชัดเจน
-- ควรทดสอบก่อนนำไปใช้บน production
+## ประวัติรุ่นที่รวบรวมจากเอกสารเดิม
 
-## สถานะการจัดเก็บบน GitHub
+ส่วนนี้รวมประวัติรุ่นและบันทึกแพตช์ของโครงการไว้ใน README ฉบับเดียว เนื้อหาอธิบายเจตนาการเปลี่ยนแปลง ไม่ใช่การรับรองว่าได้ทดสอบบน Hosting จริงแล้ว
 
-ชุดไฟล์นี้ถูกจัดเตรียมไว้สำหรับอัปโหลดไปยัง GitHub และรวมเอกสารรายงาน สารบบ คำอธิบายฟีเจอร์ และบันทึกรุ่นจากช่วงเริ่มต้นจนถึงโฉมล่าสุดไว้ใน repository เดียว
+- **v3.0:** รวมธีมหลังบ้าน ปรับ layout มือถือ ไอคอน และปุ่มควบคุม SEO พร้อมปรับเสถียรภาพ
+- **v3.1 / v3.1.1:** เพิ่มโครงสร้างคำแปลไทย/อังกฤษ ชุดคำศัพท์ language switcher และปรับข้อความหน้าเว็บ/ตัวติดตั้ง
+- **v3.1.2:** ปรับการใช้งาน File Manager และเครื่องมือหลังบ้าน
+- **v3.2.0:** เพิ่ม clean-site package และกระบวนการติดตั้งเว็บใหม่/รีเซ็ตแบบปลอดภัย
+- **v3.2.1:** ปรับปุ่มลอยบนเดสก์ท็อปและทางลัดหลังบ้าน
+- **v3.2.2:** ปรับ Site Center ให้ใช้พื้นที่หน้าจอได้เต็มขึ้น
+- **v3.2.3:** ซ่อมการนำทาง Site Center และคืน dependency ระบบ cache ที่ส่วนอื่นเรียกใช้
+- **v3.2.4:** รวม source เต็ม แก้การนำทาง/แสดง panel ของ Site Center ปรับ responsive การอัปโหลด และการป้องกัน storage
+- **v3.2.6:** ปรับระยะและแนวจัดวางเนื้อหาในหน้าโพสต์เดี่ยว
+- **v3.2.7:** เปลี่ยน Admin Quick Dock เป็น overlay แบบ fixed โดยไม่กันพื้นที่เนื้อหา
+- **v3.2.8:** จัดแนว breadcrumb/title/metadata ให้ตรงกับความกว้าง player รวมกรณีจอเปลี่ยนและมีคอลัมน์โฆษณาข้าง player
+- **การ์ดและแกลเลอรี:** ปรับกรอบการ์ด responsive, สัดส่วนโปสเตอร์, ภาพ taxonomy/ภาพสำรอง, ตัดแถวแท็กที่ไม่ต้องการ, ย่อ metadata และเพิ่ม preview/selection บนจอสัมผัส
+- **หลังบ้าน:** ปรับธีม responsive, เมนูมือถือ, ไอคอนปุ่ม, ช่องค้นหา/กรอง, feedback การสลับ SEO index, แถว taxonomy/page และ preview SEO
+
+Metadata ระบุรุ่น 3.2.8 และ CSS ใช้ asset version 3.2.8; เอกสาร assembly บางรายการอ้าง 3.2.4 เพราะเป็นจุดรวม source เต็มก่อนแพตช์รุ่นหลัง
+
+## ผลตรวจสอบและข้อจำกัด
+
+- รายงานเก่าของแพ็กเกจระบุว่ามีการตรวจ PHP syntax, route/template ใน source, ความสมบูรณ์ของ archive และ hash/manifest ใน build ตามช่วงเวลานั้น
+- การตรวจในอดีตไม่ใช่ใบรับรองของ Hosting ปลายทาง และไม่ได้แทนการทดสอบซอร์สชุดนี้บนเซิร์ฟเวอร์จริง
+- ต้องทดสอบการติดตั้ง MySQL, สิทธิ์ไฟล์และ rewrite ของ Hosting, การส่งอีเมล, การใช้งานเบราว์เซอร์/อุปกรณ์, media upload, playback และ SEO บน staging
+- ตัวอย่าง snippet เป็นการประเมิน Search Engine อาจเขียนชื่อและคำบรรยายใหม่
+
+## ข้อมูลที่ไม่รวมอยู่ในซอร์สนี้
+
+- `config.local.php`, รหัสผ่านฐานข้อมูล, API key และความลับเฉพาะเว็บไซต์
+- SQL dump จริง รายชื่อบัญชี hash รหัสผ่าน 2FA และประวัติการใช้งาน
+- รูปอัปโหลด cache log backup quarantine และข้อมูล Hosting
+- log การทำงานของเอเจนต์ รายงานแยกส่วนของการทำงาน โน้ตแพ็กเกจทดสอบส่วนตัว และ path ชั่วคราวในเครื่อง
+
+ห้ามเผยแพร่ `config.local.php` หรือฐานข้อมูลจริง ควรเก็บ backup และข้อมูลลับแยกไว้ในที่ปลอดภัย ส่วนเอกสารภาษาอังกฤษอยู่ที่ [README.md](README.md)
