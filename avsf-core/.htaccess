@@ -1,0 +1,1 @@
+# Core sources are loaded internally; direct HTTP access is blocked by the root request guard.

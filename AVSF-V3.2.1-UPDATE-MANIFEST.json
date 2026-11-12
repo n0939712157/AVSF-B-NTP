@@ -1,0 +1,538 @@
+{
+  "format": "AVSF_IN_PLACE_UPDATE",
+  "manifest_version": 1,
+  "product": "AVSF",
+  "publisher": "B-NTP",
+  "version": "3.2.1",
+  "build_date": "2026-11-09",
+  "package_type": "full_source_in_place_update",
+  "files_count": 105,
+  "total_uncompressed_bytes": 2115736,
+  "files": [
+    {
+      "path": ".htaccess",
+      "size": 3470,
+      "sha256": "e0354d0b630cd209c86e2201beabc7c47025080e554e0f4af49811ef934c61a5"
+    },
+    {
+      "path": "AVSF-METADATA.json",
+      "size": 3192,
+      "sha256": "7941bf7edd92e858fd193211df98d31dda0bf6f26c2fd79b8f197c7b07a83fb7"
+    },
+    {
+      "path": "CHANGELOG-V3-TH.md",
+      "size": 11758,
+      "sha256": "553a37ed7e2a8345c01b4582336b786968f46eae84e3076269adde8a2bfb78e7"
+    },
+    {
+      "path": "CHANGELOG-V3.1-TH.md",
+      "size": 12619,
+      "sha256": "81d927ab2867e6115b033f0de88362c243f6ab983d8ac5dd2779c933403c77d8"
+    },
+    {
+      "path": "CHANGELOG-V3.1.2-TH.md",
+      "size": 5680,
+      "sha256": "d2e03dddb24aecf45252460de5e84269a2ab5148ca4bbfb679e4254d57b4c513"
+    },
+    {
+      "path": "CHANGELOG-V3.2.0-TH.md",
+      "size": 5976,
+      "sha256": "f32e9c8fdd1741292cba25e7422091eeee104e5472b65128e679179eb0b82eb8"
+    },
+    {
+      "path": "CHANGELOG-V3.2.1-TH.md",
+      "size": 2097,
+      "sha256": "1db9cc164897394068701b5869c4bd7590a6fe17d920a1374fb6aea30112a474"
+    },
+    {
+      "path": "CLEAN-SITE-FEATURE-TH.md",
+      "size": 5429,
+      "sha256": "767347bc031f0561dc4fd8f5d29e651202b13768d5a4c80ffb30fe5d9da10aea"
+    },
+    {
+      "path": "DEVELOPER.md",
+      "size": 2358,
+      "sha256": "c5488397947e88ae058b6924a24a8090360d819fc3ac594eef52ba86252795d7"
+    },
+    {
+      "path": "I18N-CONVERSION-SPEC.md",
+      "size": 3907,
+      "sha256": "28220796033d8f94ad2da6e00a136e0ec3897edad10a9eb5958e2f8984400fde"
+    },
+    {
+      "path": "LIGHT-DARK-THEME-FIX-TH.txt",
+      "size": 2689,
+      "sha256": "da4e6bebac6c4dedc0371a5fa38fc5a80941a30bf2fe6b526684f743f8353eb2"
+    },
+    {
+      "path": "README.md",
+      "size": 21846,
+      "sha256": "93a3effe2d8c91ca06eac60ded5e49054887fffedec62f689641b81402ee2ed4"
+    },
+    {
+      "path": "avsf-admin/assets/QR-LICENSE.txt",
+      "size": 972,
+      "sha256": "3d8dc7c07d6001753a38ba06f8b2079270b1d6a5a88c35764b5ed1e1dcdb9cf9"
+    },
+    {
+      "path": "avsf-admin/assets/avsf-qrcode.js",
+      "size": 30619,
+      "sha256": "08a7f9b6dff014970a38b69aa1fd7703b4997145131148937441b3adf3e1d061"
+    },
+    {
+      "path": "avsf-admin/assets/css/admin-ui.css",
+      "size": 27302,
+      "sha256": "c2f9efd1e0206cf06359f73bfd7e9d5ad3ef0fd53cdd4d5d2891e70c0afa6f3f"
+    },
+    {
+      "path": "avsf-admin/assets/css/file-manager-center.css",
+      "size": 13800,
+      "sha256": "15a0811a97ae355c485927401245c1e6a9154192c8c75737c23e1c289b63a3c5"
+    },
+    {
+      "path": "avsf-admin/index.php",
+      "size": 476368,
+      "sha256": "d1d75754c311284d34988ace51604a30a626a9e2a7782c2ffd02041a8b5d47c2"
+    },
+    {
+      "path": "avsf-admin/modules/backup-center.php",
+      "size": 38279,
+      "sha256": "f49a166cb9e9a5055eefb9ef380e9e813dcded24bd4ac675d2facd3b249f6f00"
+    },
+    {
+      "path": "avsf-admin/modules/cache.php",
+      "size": 18938,
+      "sha256": "3f72d344378a0709f82d961f86c6dc748c5dbd1ab3c5e677c6fd89f45dbc8af6"
+    },
+    {
+      "path": "avsf-admin/modules/data-transfer.php",
+      "size": 81562,
+      "sha256": "4bbb08b3af4986cde7e29d41104d4911ebbeb0847811899e015fff76c73cc82f"
+    },
+    {
+      "path": "avsf-admin/modules/error-log-center.php",
+      "size": 12625,
+      "sha256": "a25edb59937081ac40b935a2c3b3cf9070ef0c8fc5f935961b31693b9e4ddb83"
+    },
+    {
+      "path": "avsf-admin/modules/file-manager.php",
+      "size": 113406,
+      "sha256": "316dc87d869f460134d3dcf234d8ef1d628dcdf2df638b645aaa5fe5e189c72d"
+    },
+    {
+      "path": "avsf-admin/modules/import.php",
+      "size": 60652,
+      "sha256": "1ac99dcf2602fb6b17dc89a9bd0bd37a6126fa7d4135cdabbee77afbfd40f3af"
+    },
+    {
+      "path": "avsf-admin/modules/redirects.php",
+      "size": 25650,
+      "sha256": "7d874923b0d05c4897053127e1e8c844b7b56d5dbe22a4c9499c9790dee8d3e0"
+    },
+    {
+      "path": "avsf-admin/modules/security.php",
+      "size": 26644,
+      "sha256": "c23fe2b8e653867ca92cc25fa1095a7217c588ac843179e4aad5be81849ce42e"
+    },
+    {
+      "path": "avsf-admin/modules/seo-center.php",
+      "size": 61896,
+      "sha256": "f7870d7f2df956b90666cadb01063a042ed1414f8b111fcf7002d290e1070b29"
+    },
+    {
+      "path": "avsf-admin/modules/site-center.php",
+      "size": 133924,
+      "sha256": "052fd63e4d3146d63a2c31d737e69efbe34134ac7d20354d900c2781cc7b9c80"
+    },
+    {
+      "path": "avsf-admin/modules/users.php",
+      "size": 46869,
+      "sha256": "0891ecf49670d4e0cc7f90a1fca62375dd68d7c5b3400e0ef802dd56d0290769"
+    },
+    {
+      "path": "avsf-core/.htaccess",
+      "size": 95,
+      "sha256": "759e7a99b33537da306994553325d29e9dd7d4aa9d452f2b9b5d0a44ef5e7a25"
+    },
+    {
+      "path": "avsf-core/analytics/recent_page_views.php",
+      "size": 1420,
+      "sha256": "589955374f546c13edb0a43300455ec800a860b9b5f3a1093680c3ac3b68cc70"
+    },
+    {
+      "path": "avsf-core/api/vdohide-api.php",
+      "size": 6060,
+      "sha256": "c27bd2165e237b73db93c0a0516dd2a37502e00dfd936893b3a420053660a205"
+    },
+    {
+      "path": "avsf-core/api/vdohide.php",
+      "size": 962,
+      "sha256": "685d389ba387d9e07013e5686b09b29410c344b004c65a23ef38589743856c4c"
+    },
+    {
+      "path": "avsf-core/auth/permissions.php",
+      "size": 12442,
+      "sha256": "0ed8182a09a189dea082df309ac38d8b473b3e7d1e5b33731532dc124cf37047"
+    },
+    {
+      "path": "avsf-core/auth/totp.php",
+      "size": 3782,
+      "sha256": "e3d6595cf5c53d93ab07ab71579b6f3dd2654d79d0821f2f0d20072ededc98ba"
+    },
+    {
+      "path": "avsf-core/backup/backup_manager.php",
+      "size": 86050,
+      "sha256": "c25fe44cefb1aa31b1175974346d6a9dd6df3b99ade7fbde3aa9b8b0d222327d"
+    },
+    {
+      "path": "avsf-core/bootstrap.php",
+      "size": 13454,
+      "sha256": "f4e3f9e364343043b608583230def4ef4d0d63c8b86ca4118bf352fe34c69a77"
+    },
+    {
+      "path": "avsf-core/database/auto-install.php",
+      "size": 10581,
+      "sha256": "416b98ceee6eb318fe8c08168d94cec85855d529c3ab7a14c4b93c4a5020324c"
+    },
+    {
+      "path": "avsf-core/functions.php",
+      "size": 61300,
+      "sha256": "3d117b324aac84099ead65436325a76ea5a3465558940a2433badca023309e8d"
+    },
+    {
+      "path": "avsf-core/i18n.php",
+      "size": 5714,
+      "sha256": "66d9b051b3bde900aea6c097c3d275d18c1477c0971a5c7d1449b9d893b649eb"
+    },
+    {
+      "path": "avsf-core/import/avsf-image-matcher.php",
+      "size": 9539,
+      "sha256": "dbe836c4a9c30cc3fbc8de3c04bc80e988c641ff8194d396fcee1c501bd88fe6"
+    },
+    {
+      "path": "avsf-core/import/post_import_parser.php",
+      "size": 23540,
+      "sha256": "98eca38ebaa3da6250009d673d5e5a61caa4e854be26cb01ecf1c450b5de179f"
+    },
+    {
+      "path": "avsf-core/lang/en/_core.php",
+      "size": 1508,
+      "sha256": "a432d972e2b03c12895aa4aff20cc6cd90985ceea56d30e4d48a5f74818fa073"
+    },
+    {
+      "path": "avsf-core/lang/en/admin-index.php",
+      "size": 67122,
+      "sha256": "37a56154461881a84bba74d66a035aafc8056ca6e4cd5f10befbf1fdd798d872"
+    },
+    {
+      "path": "avsf-core/lang/en/admin-modules.php",
+      "size": 122523,
+      "sha256": "daa7d55e1a66ffa45627c786698e88f57092b9c33af6fd8b8438072b9310541b"
+    },
+    {
+      "path": "avsf-core/lang/en/core-frontend.php",
+      "size": 46248,
+      "sha256": "0693fa341967c1cd8ae27a5d81fc06c564ae9d76c86a0fe27ed53c0e1f8c3101"
+    },
+    {
+      "path": "avsf-core/security/malware_scanner.php",
+      "size": 18997,
+      "sha256": "c8ac96d6d4eea4a8a981ec46c075b6f24abbb3dd200c856c7d9f7524834e7033"
+    },
+    {
+      "path": "avsf-core/security/security_lib.php",
+      "size": 10428,
+      "sha256": "3005cd9061751aaa9d29161a69a99e0c1afb8fcd3f79ec931af092d87413b2c1"
+    },
+    {
+      "path": "avsf-core/security/zip_safety.php",
+      "size": 9588,
+      "sha256": "245c87e47fb7a45915197b77be762de9a48e6421ccb7c8833406011ade127b55"
+    },
+    {
+      "path": "avsf-core/updates/deployment_manager.php",
+      "size": 44098,
+      "sha256": "55c85c48e765b551deefbe2c52072f2c0e6521d59f6d81b849118139fffebcb8"
+    },
+    {
+      "path": "avsf-frontend/assets/xsl/sitemap.xsl",
+      "size": 4683,
+      "sha256": "d351842e850448e138e6239158d7929a72faad0d1f29ec7f7ba52d7528e32e30"
+    },
+    {
+      "path": "avsf-frontend/controllers/forgot-password.php",
+      "size": 8425,
+      "sha256": "632277a8ffda55fca5d40971a87c29d1169cec5992a424c0a189b8406997e421"
+    },
+    {
+      "path": "avsf-frontend/controllers/page-view.php",
+      "size": 2369,
+      "sha256": "13ce40745b14a27725d32c0545404174bd147e1132e907721417f15c6b08b2b2"
+    },
+    {
+      "path": "avsf-frontend/controllers/register.php",
+      "size": 7616,
+      "sha256": "29d8011dc7581cb110eaa004d5bb41add8ab7840228794bf38769929eca12ced"
+    },
+    {
+      "path": "avsf-frontend/controllers/robots.php",
+      "size": 1990,
+      "sha256": "91ed214f52a950c5ea6f65fb48973cf49c78300bf7482c8fa195f93578ad4a0c"
+    },
+    {
+      "path": "avsf-frontend/controllers/rss.php",
+      "size": 2962,
+      "sha256": "0fd54cc27243f93a86198f30f24343ce9b28f8f6f8709de3ce8a4e19f6a8007e"
+    },
+    {
+      "path": "avsf-frontend/controllers/sitemap.php",
+      "size": 5691,
+      "sha256": "60e9ec95319d2ab9b4c04be48bb86e79cd6667b962c79888c3cfc4b4f4eb34b5"
+    },
+    {
+      "path": "avsf-frontend/controllers/sitemap_index.php",
+      "size": 4593,
+      "sha256": "66d5f9780376d876d3d6cfa07173258bd2228c3fe1c370001eddea69f5ecd8a4"
+    },
+    {
+      "path": "avsf-frontend/controllers/view.php",
+      "size": 1226,
+      "sha256": "01046be0f47d77ec535a477491ebe707944f5fa7845dd27cc83207c8c157810d"
+    },
+    {
+      "path": "avsf-frontend/index.php",
+      "size": 30388,
+      "sha256": "b6b940562c1f3a3815d973f32e2644408a9a12a1322ccced280b1b1a36ec9037"
+    },
+    {
+      "path": "avsf-frontend/loop-templates/content-action-card.php",
+      "size": 3472,
+      "sha256": "1078cddc72a9e2f41f20b6a59b3b39d1d88159a8170a6d6a011b10a19d97b05c"
+    },
+    {
+      "path": "avsf-frontend/loop-templates/content-comments.php",
+      "size": 2006,
+      "sha256": "954e29551117d4ac2291ead93febef875e1dd750c81f2e064f579ab3e9255386"
+    },
+    {
+      "path": "avsf-frontend/loop-templates/content-gallery.php",
+      "size": 2121,
+      "sha256": "4c73923cf87335708475925cb9024c4dc1a0d135ad0e70c205e3d5ee0e186c29"
+    },
+    {
+      "path": "avsf-frontend/loop-templates/content-post-card.php",
+      "size": 2692,
+      "sha256": "a7ca4944726560c33eefb9d996df0dfe0ffcca90de03966c2dffc5d86c92a3c7"
+    },
+    {
+      "path": "avsf-frontend/loop-templates/content-related.php",
+      "size": 1681,
+      "sha256": "f452ca3782a67d86ea4b914b6fa55e4127d7ec65c35818676e81e7d7b8453b2c"
+    },
+    {
+      "path": "avsf-frontend/loop-templates/content-share-buttons.php",
+      "size": 5415,
+      "sha256": "db9cbf11a8be8b4443de39383ddb6b0f7d44d75cfe1a9ca4af1014797f3dd90c"
+    },
+    {
+      "path": "avsf-frontend/loop-templates/single-video-player.php",
+      "size": 2188,
+      "sha256": "bc39f96a56fea77698b56fdb73cde63cecff2ac7e37981c45aa8f7c4aa060c99"
+    },
+    {
+      "path": "avsf-frontend/loop-templates/single-video.php",
+      "size": 16037,
+      "sha256": "336839c2a9edeee023af44a9b2c98bb6f6e20a1e4eb160266306026863ebe2c2"
+    },
+    {
+      "path": "avsf-frontend/pages/page-all.php",
+      "size": 3724,
+      "sha256": "cda6afc2f0321d3bd96294fb71d7d6b90cc04e375c58e33636fc97fc76b1cfda"
+    },
+    {
+      "path": "avsf-frontend/pages/page-categories.php",
+      "size": 5778,
+      "sha256": "632fbefc824d0681ec77c2bf1d2be8371f8fc88cfd76597463f1a048eef43c36"
+    },
+    {
+      "path": "avsf-frontend/pages/page-home.php",
+      "size": 6916,
+      "sha256": "ff09b1037d76a304d852ec6eaa1cac829114b947fb29699d19a1077994254488"
+    },
+    {
+      "path": "avsf-frontend/pages/page-not-found.php",
+      "size": 1127,
+      "sha256": "a8e835507be5e3a2fb004a5a6b1740bdfd1cc07337c823d06607925bb7eec272"
+    },
+    {
+      "path": "avsf-frontend/pages/page-search.php",
+      "size": 1981,
+      "sha256": "4d7ece410352db9d965e646217928206654109ef73aeec0fc27537371fd8cdd4"
+    },
+    {
+      "path": "avsf-frontend/pages/page-static.php",
+      "size": 1531,
+      "sha256": "935e82cdc01943a870adcb9175b827c175a52552126303f923e1706f02124e73"
+    },
+    {
+      "path": "avsf-frontend/pages/page-taxlist.php",
+      "size": 5858,
+      "sha256": "76b9742224374573e65e3ddc2bbe2173c80cc1f16c803344c55b682488331369"
+    },
+    {
+      "path": "avsf-frontend/partials/footer.php",
+      "size": 23687,
+      "sha256": "8255dedd1694fe9457bd8bb2285fc5a37a32f776a387e9b52971fcaa3c80bd58"
+    },
+    {
+      "path": "avsf-frontend/partials/head.php",
+      "size": 58349,
+      "sha256": "5927e90f10ce17d5759d1a0464631ede753fcce7cffee3cb04f8e234a215c7ad"
+    },
+    {
+      "path": "avsf-frontend/partials/header.php",
+      "size": 3943,
+      "sha256": "699334e35945980586fe151edf31cfc840add0e111312220f5f4b5a3e0534edb"
+    },
+    {
+      "path": "avsf-frontend/partials/pagination.php",
+      "size": 1878,
+      "sha256": "54cb5e8f3b4d83a01df79c1b31f8cd7651b29ab7c4254f5ed16b79aa71ddc0f1"
+    },
+    {
+      "path": "avsf-frontend/runtime/template-loader.php",
+      "size": 4544,
+      "sha256": "f776eda4577bbff0eb8e807a97d2eac633d8c68c96303eb782d97fdeddaba049"
+    },
+    {
+      "path": "avsf-frontend/taxonomy-templates/taxonomy-actor.php",
+      "size": 5663,
+      "sha256": "06a12d3b9e5d508236f33e1adb259d7fce87733e0fd30cab1f0afe1f388b252b"
+    },
+    {
+      "path": "avsf-frontend/taxonomy-templates/taxonomy-category.php",
+      "size": 6364,
+      "sha256": "77c0395bc921e0bce8fbe279deb8f0ec513add9c8824c62852e9526366ec9b96"
+    },
+    {
+      "path": "avsf-frontend/taxonomy-templates/taxonomy-studio.php",
+      "size": 5717,
+      "sha256": "3d60ae08e940069014babb2fdf5232a91dff5f5cd1037a7aa4473beccf8394db"
+    },
+    {
+      "path": "avsf-frontend/taxonomy-templates/taxonomy-tag.php",
+      "size": 5177,
+      "sha256": "441f4e42eba99a24a815a6953527b770df20c9fdcd2f226028ff8011efe27119"
+    },
+    {
+      "path": "avsf-installer/.htaccess",
+      "size": 64,
+      "sha256": "87f815dea1f1c66198ce6b784457ab27ba81b713d2b8ffc22beb8fb420d6a48e"
+    },
+    {
+      "path": "avsf-installer/database-schema.sql",
+      "size": 8350,
+      "sha256": "354ae3cda7aa66a50bdf4ec450af95dfd0db36a347273ba0000c80848bb60350"
+    },
+    {
+      "path": "avsf-installer/db-setup.php",
+      "size": 7998,
+      "sha256": "4005f36c7b6595d4ae239e146a2829da9d17123c9a27dcf320fca06e4ec2f6ae"
+    },
+    {
+      "path": "avsf-installer/migrate-storage.php",
+      "size": 5204,
+      "sha256": "4a991e81fe1247841f59976547fd36affd192144e70abde9492572a6b35396cf"
+    },
+    {
+      "path": "avsf-installer/server-reconnect.php",
+      "size": 16828,
+      "sha256": "3d4b214446555522894c830439d8f2096e3287f176125357be97e663dbf7c459"
+    },
+    {
+      "path": "avsf-installer/setup.php",
+      "size": 20309,
+      "sha256": "e52bdaae1343ee7b80bb6a4bd4c63b71cb3a321eb3a1803318e0fce03cf801b4"
+    },
+    {
+      "path": "avsf-storage/.htaccess",
+      "size": 363,
+      "sha256": "a8551762e9475c6477e96a5c953d6216efdbf4dca88e0468086a87923fa77371"
+    },
+    {
+      "path": "avsf-storage/index.php",
+      "size": 37,
+      "sha256": "696138b31bbb2a20c4bb53eb98b68dbe25557947dd6a7513c81e1c8b9446ce0d"
+    },
+    {
+      "path": "avsf-storage/uploads/.htaccess",
+      "size": 477,
+      "sha256": "c0b4a2f520513caa49b339dcc0dcc2e8006a6b74dcd40c548db3c736ef63a348"
+    },
+    {
+      "path": "avsf-storage/uploads/index.html",
+      "size": 30,
+      "sha256": "1ddeb53eae76115496b248a8cdd8a10eaa4dfdc61422effb7d8199ac788ef7c1"
+    },
+    {
+      "path": "avsf-updates/.htaccess",
+      "size": 154,
+      "sha256": "8529c7d86338f2a4d0084407d6efddb538d3d12b49ffd55a79b25a409399188d"
+    },
+    {
+      "path": "config.php",
+      "size": 1500,
+      "sha256": "842e21046f8ea6e8dc57b51e288cd7c5a79018865ef18e6f19500712a4e67afc"
+    },
+    {
+      "path": "forgot-password.php",
+      "size": 74,
+      "sha256": "a9213d52dccc933c68ac61247c7d8a7d63ae6d24ef4457d5934b42aeb097e48b"
+    },
+    {
+      "path": "index.php",
+      "size": 52,
+      "sha256": "3beecbe8ad5cb002305e0498afb74b36970ef035a858a13bfe9dcde0c29fb38f"
+    },
+    {
+      "path": "migrate-storage.php",
+      "size": 63,
+      "sha256": "3ce7761445671a6a50416e9aa1e940a5e9914a0e17851c2438c4076ec0d3f899"
+    },
+    {
+      "path": "page-view.php",
+      "size": 68,
+      "sha256": "02c835b23be706d759f8498809d4bb3bdb7981f5313a5c7a2f9ccffed3303493"
+    },
+    {
+      "path": "register.php",
+      "size": 67,
+      "sha256": "44d258db6deedff16f0bd21e2bd5ac200b44ef4dfaded27911f93c0f8de7775e"
+    },
+    {
+      "path": "robots.php",
+      "size": 65,
+      "sha256": "e3f31fb351840d457bf62cd9b08733b112ae9ea1ab41ec7ed524112895492cc9"
+    },
+    {
+      "path": "rss.php",
+      "size": 62,
+      "sha256": "451c755e363e2262477a73df2ace0095e3938015b9b76cf2763849c5f26788b8"
+    },
+    {
+      "path": "sitemap.php",
+      "size": 66,
+      "sha256": "c23374faba36979bcab88e097abdece16d57eb85f5de778eb352609f94b575e7"
+    },
+    {
+      "path": "sitemap_index.php",
+      "size": 72,
+      "sha256": "cf05050ff6092c3e368e25dfe532397c8e80090e23ab900b5ab7b9f834ca40f8"
+    },
+    {
+      "path": "view.php",
+      "size": 63,
+      "sha256": "9e4f611382c996fb948d24f625ffa11c88f9cc8fdb19eb1fb2a12bf735956e53"
+    }
+  ]
+}

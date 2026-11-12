@@ -1,0 +1,70 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<FilesMatch "^(?:config\.php|config\.local\.php)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Deny from all
+  </IfModule>
+</FilesMatch>
+<FilesMatch "\.(?:sql|log|ini|bak|json)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+RewriteEngine On
+
+# Block direct HTTP requests to internal source/storage directories.
+# Internal rewrites from the public root routes below remain allowed.
+RewriteCond %{THE_REQUEST} \s/+[^\s?]*/?avsf-(?:core|admin|frontend|installer|storage|updates)(?:/|\s|\?) [NC]
+RewriteRule ^avsf-(?:core|admin|frontend|installer|storage|updates)(?:/|$) - [F,L]
+
+# Stable public aliases for internal application modules.
+RewriteRule ^admin-login/assets/avsf-qrcode\.js$ avsf-admin/assets/avsf-qrcode.js [L,NC]
+RewriteRule ^admin-login/?$ avsf-admin/index.php [QSA,L]
+RewriteRule ^admin-login/index\.php$ avsf-admin/index.php [QSA,L]
+RewriteRule ^admin-login/(admin-ui\.css|file-manager-center\.css)$ avsf-admin/assets/css/$1 [L,NC]
+RewriteRule ^admin-login/(.+\.php)$ avsf-admin/modules/$1 [QSA,L,NC]
+RewriteRule ^api/vdohide\.php$ avsf-core/api/vdohide.php [QSA,L]
+
+# Public media URL stays /uploads/... while files live under avsf-storage/uploads/.
+RewriteRule ^uploads/(.*)$ avsf-storage/uploads/$1 [L,NC]
+
+# Public SEO and feed endpoints.
+RewriteRule ^robots\.txt$ avsf-frontend/controllers/robots.php [L]
+RewriteRule ^rss\.xml$ avsf-frontend/controllers/rss.php [L]
+RewriteRule ^sitemap_index\.xml$ avsf-frontend/controllers/sitemap_index.php [L]
+RewriteRule ^sitemap\.xml$ avsf-frontend/controllers/sitemap.php?part=all [QSA,L]
+RewriteRule ^sitemap-posts-([0-9]+)\.xml$ avsf-frontend/controllers/sitemap.php?part=posts&p=$1 [QSA,L]
+RewriteRule ^sitemap-(pages|categories|studios|actors|tags)\.xml$ avsf-frontend/controllers/sitemap.php?part=$1 [QSA,L]
+RewriteRule ^sitemap\.xsl$ avsf-frontend/assets/xsl/sitemap.xsl [L]
+
+# First-run installer endpoints remain at the site root.
+RewriteRule ^migrate-storage\.php$ avsf-installer/migrate-storage.php [QSA,L]
+RewriteRule ^db-setup\.php$ avsf-installer/server-reconnect.php [QSA,L]
+RewriteRule ^setup\.php$ avsf-installer/server-reconnect.php [QSA,L]
+
+# Other public controller endpoints.
+RewriteRule ^register\.php$ avsf-frontend/controllers/register.php [QSA,L]
+RewriteRule ^forgot-password\.php$ avsf-frontend/controllers/forgot-password.php [QSA,L]
+RewriteRule ^page-view\.php$ avsf-frontend/controllers/page-view.php [QSA,L]
+RewriteRule ^view\.php$ avsf-frontend/controllers/view.php [QSA,L]
+
+# Standard post permalink variants (date/name, month/name, numeric).
+RewriteRule ^([0-9]{4})/([0-9]{2})/([0-9]{2})/([^/]+)/?$ index.php?route_date=$1-$2-$3&route_slug=$4 [QSA,L]
+RewriteRule ^([0-9]{4})/([0-9]{2})/([^/]+)/?$ index.php?route_month=$1-$2&route_slug=$3 [QSA,L]
+RewriteRule ^archives/([0-9]+)/?$ index.php?route_post_id=$1 [QSA,L]
+RewriteRule ^(all|categories)/?$ index.php?route_slug=$1 [QSA,L]
+
+# Real root files and directories (including uploaded media after internal rewrite) are served normally.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^([^/]+)/([^/]+)/?$ index.php?route_base=$1&route_slug=$2 [QSA,L]
+RewriteRule ^([^/]+)/?$ index.php?route_slug=$1 [QSA,L]
