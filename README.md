@@ -1,6 +1,6 @@
 # AVSF-B-NTP
 
-Full AVSF source package for a **new, empty website installation**. This document is the consolidated installation guide, feature overview, release history, and validation summary. It contains no agent execution logs, private site configuration, database snapshot, user records, or uploaded media.
+Full AVSF source package for a **new, empty website installation**. This document consolidates the installation guide, feature overview, release history, and validation summary. It contains no private site configuration, database snapshot, user records, or uploaded media.
 
 ## Release
 
@@ -98,6 +98,6 @@ The source declares version 3.2.8 in release metadata and uses the 3.2.8 fronten
 - `config.local.php`, database passwords, API keys, and other site-specific secrets.
 - Live SQL/database dumps, user/account records, password hashes, 2FA secrets, and activity history.
 - User-uploaded media, cache, logs, backups, quarantine contents, and hosting data.
-- Agent work logs, per-agent/shard reports, private test-package notes, and temporary machine paths.
+- Private test-package notes and temporary machine paths.
 
 Never publish a real `config.local.php` or a database dump. Keep a separate encrypted backup of site data and credentials. See [README-TH.md](README-TH.md) for the Thai guide.
